@@ -1,0 +1,57 @@
+<%= form_with(model: chef, local: true) do |form| %>
+  <% if chef.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chef.errors.count, "error") %> prohibited this chef from being saved:</h2>
+
+      <ul>
+        <% chef.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :firstName %>
+    <%= form.text_field :firstName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastName %>
+    <%= form.text_field :lastName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DOB, 'Date Of Birth' %>
+    <%= form.date_select :DOB %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_id %>
+    <%= form.text_field :restaurant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_id %>
+    <%= select_tag 'restaurant_id', options_for_select(@restaurants.collect{ |r| [r.name, r.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
