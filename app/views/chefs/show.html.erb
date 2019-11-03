@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @chef.firstName %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @chef.lastName %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @chef.password %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @chef.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @chef.DOB %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @chef.email %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @chef.restaurant_id %>
+</p>
+
+<%= link_to 'Edit', edit_chef_path(@chef) %> |
+<%= link_to 'Back', chefs_path %>
