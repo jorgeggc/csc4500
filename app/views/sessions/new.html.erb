@@ -1,0 +1,34 @@
+<p id="alert"><%= alert %></p>
+
+<h1>Login</h1>
+
+<%= form_tag sessions_path do |form| %>
+
+  <div class="field">
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="field">
+    <%= radio_button_tag(:logintype, "chef", checked = true) %>
+    <%= label_tag(:logintype_chef, "Chef") %>
+    <%= radio_button_tag(:logintype, "customer") %>
+    <%= label_tag(:logintype_customer, "Customer") %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+
+<% end %>
+
+<h1>New User? Sign Up!</h1>
+<%= link_to "Sign Up", signup_path %>
+
+<h2>View Recipe's For Free!</h2>
+<%= link_to "View", home_path %>

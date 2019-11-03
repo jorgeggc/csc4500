@@ -3,7 +3,7 @@ class CreateChefs < ActiveRecord::Migration[6.0]
     create_table :chefs do |t|
       t.string :firstName
       t.string :lastName
-      t.string :password
+      t.string :password_digest
       t.string :gender
       t.date :DOB
       t.string :email

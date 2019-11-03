@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_180759) do
   create_table "chefs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "firstName"
     t.string "lastName"
-    t.string "password"
+    t.string "password_digest"
     t.string "gender"
     t.date "DOB"
     t.string "email"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_10_27_180759) do
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.string "ingredients"
     t.string "instructions"
     t.bigint "chef_id"
@@ -47,10 +49,9 @@ ActiveRecord::Schema.define(version: 2019_10_27_180759) do
     t.string "name"
     t.string "address"
     t.string "city"
-    t.bigint "state_country_id"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["state_country_id"], name: "index_restaurants_on_state_country_id"
   end
 
   create_table "state_countries", primary_key: "state", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -62,14 +63,13 @@ ActiveRecord::Schema.define(version: 2019_10_27_180759) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "firstName"
     t.string "lastName"
-    t.string "password"
+    t.string "password_digest"
     t.string "gender"
     t.date "DOB"
     t.string "email"
-    t.bigint "state_country_id"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["state_country_id"], name: "index_users_on_state_country_id"
   end
 
 end

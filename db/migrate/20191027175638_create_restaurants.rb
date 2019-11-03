@@ -4,9 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :address
       t.string :city
-
-      t.references :state_country
-
+      t.string :state
       t.timestamps
     end
   end

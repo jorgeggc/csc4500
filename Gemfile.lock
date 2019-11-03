@@ -1,3 +1,4 @@
+
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 8a64089bf4c07c457be40973f1c99923ca8a7ef9
@@ -68,6 +69,9 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+
+    bcrypt (3.1.13)
+
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -82,6 +86,10 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    concurrent-ruby (1.1.5)
+    crass (1.0.5)
+    erubi (1.9.0)
+
     commonjs (0.2.7)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
@@ -94,6 +102,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (4.0.0)
@@ -211,6 +220,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
