@@ -1,0 +1,2 @@
+module SignedinchefHelper
+end

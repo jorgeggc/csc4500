@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Description</th>
       <th>Ingredients</th>
       <th>Instructions</th>
       <th>Chef</th>
@@ -15,6 +17,8 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.description %></td>
         <td><%= recipe.ingredients %></td>
         <td><%= recipe.instructions %></td>
         <td><%= recipe.chef_id %></td>
