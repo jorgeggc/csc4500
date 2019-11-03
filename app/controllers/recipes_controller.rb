@@ -10,12 +10,15 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+
     @creator_of_recipe = Chef.where("id = ?", @recipe.chef_id)
   end
 
   # GET /recipes/new
   def new
+
     @chef_info = Chef.where(id: session[:chef_id])
+
     @recipe = Recipe.new
   end
 
