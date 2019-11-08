@@ -1,0 +1,104 @@
+mysql root@localhost:(none)> use dbproject_development;
+mysql root@localhost:dbproject_development> show tables
++---------------------------------+
+| Tables_in_dbproject_development |
++---------------------------------+
+| ar_internal_metadata            |
+| chefs                           |
+| favorites                       |
+| recipes                         |
+| restaurants                     |
+| schema_migrations               |
+| state_countries                 |
+| users                           |
++---------------------------------+
+mysql root@localhost:dbproject_development> desc chefs
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| id              | bigint(20)   | NO   | PRI | <null>  | auto_increment |
+| firstName       | varchar(255) | YES  |     | <null>  |                |
+| lastName        | varchar(255) | YES  |     | <null>  |                |
+| password_digest | varchar(255) | YES  |     | <null>  |                |
+| gender          | varchar(255) | YES  |     | <null>  |                |
+| DOB             | date         | YES  |     | <null>  |                |
+| email           | varchar(255) | YES  |     | <null>  |                |
+| restaurant_id   | bigint(20)   | YES  | MUL | <null>  |                |
+| created_at      | datetime(6)  | NO   |     | <null>  |                |
+| updated_at      | datetime(6)  | NO   |     | <null>  |                |
++-----------------+--------------+------+-----+---------+----------------+
+mysql root@localhost:dbproject_development> desc favorites
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | bigint(20)  | NO   | PRI | <null>  | auto_increment |
+| recipe_id  | bigint(20)  | YES  | MUL | <null>  |                |
+| user_id    | bigint(20)  | YES  | MUL | <null>  |                |
+| created_at | datetime(6) | NO   |     | <null>  |                |
+| updated_at | datetime(6) | NO   |     | <null>  |                |
++------------+-------------+------+-----+---------+----------------+
+mysql root@localhost:dbproject_development> desc recipes
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | bigint(20)   | NO   | PRI | <null>  | auto_increment |
+| name         | varchar(255) | YES  |     | <null>  |                |
+| description  | varchar(255) | YES  |     | <null>  |                |
+| ingredients  | varchar(255) | YES  |     | <null>  |                |
+| instructions | varchar(255) | YES  |     | <null>  |                |
+| chef_id      | bigint(20)   | YES  | MUL | <null>  |                |
+| created_at   | datetime(6)  | NO   |     | <null>  |                |
+| updated_at   | datetime(6)  | NO   |     | <null>  |                |
++--------------+--------------+------+-----+---------+----------------+
+mysql root@localhost:dbproject_development> desc restaurants
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint(20)   | NO   | PRI | <null>  | auto_increment |
+| name       | varchar(255) | YES  |     | <null>  |                |
+| address    | varchar(255) | YES  |     | <null>  |                |
+| city       | varchar(255) | YES  |     | <null>  |                |
+| state      | varchar(255) | YES  |     | <null>  |                |
+| created_at | datetime(6)  | NO   |     | <null>  |                |
+| updated_at | datetime(6)  | NO   |     | <null>  |                |
++------------+--------------+------+-----+---------+----------------+
+mysql root@localhost:dbproject_development> desc state_countries
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| state      | varchar(255) | NO   | PRI | <null>  |       |
+| country    | varchar(255) | NO   |     | <null>  |       |
+| created_at | datetime(6)  | NO   |     | <null>  |       |
+| updated_at | datetime(6)  | NO   |     | <null>  |       |
++------------+--------------+------+-----+---------+-------+
+mysql root@localhost:dbproject_development> desc users
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| id              | bigint(20)   | NO   | PRI | <null>  | auto_increment |
+| firstName       | varchar(255) | YES  |     | <null>  |                |
+| lastName        | varchar(255) | YES  |     | <null>  |                |
+| password_digest | varchar(255) | YES  |     | <null>  |                |
+| gender          | varchar(255) | YES  |     | <null>  |                |
+| DOB             | date         | YES  |     | <null>  |                |
+| email           | varchar(255) | YES  |     | <null>  |                |
+| state           | varchar(255) | YES  |     | <null>  |                |
+| created_at      | datetime(6)  | NO   |     | <null>  |                |
+| updated_at      | datetime(6)  | NO   |     | <null>  |                |
++-----------------+--------------+------+-----+---------+----------------+
+mysql root@localhost:dbproject_development> desc schema_migrations
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| version | varchar(255) | NO   | PRI | <null>  |       |
++---------+--------------+------+-----+---------+-------+
+mysql root@localhost:dbproject_development> desc ar_internal_metadata
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| key        | varchar(255) | NO   | PRI | <null>  |       |
+| value      | varchar(255) | YES  |     | <null>  |       |
+| created_at | datetime(6)  | NO   |     | <null>  |       |
+| updated_at | datetime(6)  | NO   |     | <null>  |       |
++------------+--------------+------+-----+---------+-------+
+mysql root@localhost:dbproject_development> show users
