@@ -1,7 +1,11 @@
-<% if not current_user %>
+<% unless current_user %>
   <%= link_to "Sign Up", signup_path %> or 
   <%= link_to "Log In", login_path %>
 <% end %>
+<div class="container">
+<h1> Welcome
+<%= current_user.try(:firstName) %>
+</h1>
 <h1>Current Recipes!</h1>
 
 <table>
@@ -32,3 +36,5 @@
 <% if current_user %>
   <%= link_to 'Log Out', logout_path  %>
 <% end %>
+
+</div>

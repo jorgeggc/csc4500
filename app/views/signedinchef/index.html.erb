@@ -1,6 +1,7 @@
 <% if not current_chef %>
   <%= link_to "Log In", login_path %>
 <% else %>
+  <h1> Welcome <%= current_chef.try(:firstName) %></h1>
   <h1>Current Recipes!</h1>
 
   <table>
