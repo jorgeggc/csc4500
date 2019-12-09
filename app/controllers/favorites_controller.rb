@@ -24,15 +24,23 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
+    params[:favorite] = { recipe_id: params[:recipe_id], user_id: current_user.try(:id) }
     @favorite = Favorite.new(favorite_params)
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to @favorite, notice: 'Favorite was successfully created.' }
-        format.json { render :show, status: :created, location: @favorite }
+        #redirect_to home_path
+        #flash[:alert] = "worked"
+        format.html { redirect_to home_path, notice: 'Favorite was successfully created.' }
+        #format.json { render :show, status: :created, location: @favorite }
       else
-        format.html { render :new }
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
+        #Favorite.where(["recipe_id = ? and user_id = ?", params[:recipe_id], current_user.try(:id)]).destroy
+        destroyed = Favorite.where(["recipe_id = ? and user_id = '?'", params[:recipe_id], current_user.try(:id)]).limit(1)
+        Favorite.destroy(destroyed.ids)
+        #redirect_to home_path
+        #flash[:alert] = "didnt work"
+        format.html { redirect_to home_path, alert: 'Unfavorited' }
+        #format.json { render json: @favorite.errors, status: :unprocessable_entity }
       end
     end
   end

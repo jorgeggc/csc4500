@@ -29,8 +29,8 @@ class ChefsController < ApplicationController
 
     respond_to do |format|
       if @chef.save
-        format.html { redirect_to @chef, notice: 'Chef was successfully created.' }
-        format.json { render :show, status: :created, location: @chef }
+        format.html { redirect_to admin_chefs_path, notice: 'Chef was successfully created.' }
+        #format.json { render :show, status: :created, location: @chef }
       else
         format.html { render :new }
         format.json { render json: @chef.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class ChefsController < ApplicationController
   def update
     respond_to do |format|
       if @chef.update(chef_params)
-        format.html { redirect_to @chef, notice: 'Chef was successfully updated.' }
-        format.json { render :show, status: :ok, location: @chef }
+        format.html { redirect_to admin_chefs_path, notice: 'Chef was successfully updated.' }
+        #format.json { render :show, status: :created, location: @chef }
       else
         format.html { render :edit }
         format.json { render json: @chef.errors, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ChefsController < ApplicationController
   def destroy
     @chef.destroy
     respond_to do |format|
-      format.html { redirect_to chefs_url, notice: 'Chef was successfully destroyed.' }
+      format.html { redirect_to admin_chefs_path, notice: 'Chef was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

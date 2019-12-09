@@ -24,6 +24,15 @@ class SessionsController < ApplicationController
         flash.now[:alert] = "Email or password is invalid for customer"
         render "new"
       end
+
+    elsif login_user == "admin"
+      admin = Admin.find_by_email(params[:email])
+      if admin && admin.authenticate(params[:password])
+        redirect_to admin_home_path, notice: "Logged in!"
+      else
+        flash.now[:alert] = "Email or password is invalid for admin"
+        render "new"
+      end
     end
   end
 

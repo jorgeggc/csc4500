@@ -16,6 +16,7 @@ default: &default
   username: csc4500
   password: csc4500
   host: localhost
+  port: 3307
 
 development:
   <<: *default

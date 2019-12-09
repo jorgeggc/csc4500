@@ -1,4 +1,5 @@
 <p id="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>Login</h1>
 
@@ -19,6 +20,8 @@
     <%= label_tag(:logintype_chef, "Chef") %>
     <%= radio_button_tag(:logintype, "customer") %>
     <%= label_tag(:logintype_customer, "Customer") %>
+    <%= radio_button_tag(:logintype, "admin") %>
+    <%= label_tag(:logintype_admin, "Admin") %>
   </div>
 
   <div class="actions">
