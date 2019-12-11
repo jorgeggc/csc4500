@@ -20,17 +20,26 @@
 
 <p>
   <strong>Chef:</strong>
-  <% @creator_of_recipe.each do |chef| %>
-    <%= chef.firstName %>
-    <%= chef.lastName %>
-  <% end %>
+  <%= @recipe.chef.firstName %> <%= @recipe.chef.lastName %>
 </p>
 
 <% if current_chef %>
+  <p>
+    <% if @recipe.users.empty? %>
+      <strong>No Favorites Yet, stay strong</strong>
+    <% else %>
+      <strong>Favorited By:</strong>
+      <% @recipe.users.each do |favorited_users| %>
+        <%= favorited_users.firstName%> <%= favorited_users.lastName%>
+        <br>
+      <% end %>
+    <% end %>
+  </p>  
+
   <td><%= link_to 'Edit', edit_recipe_path(@recipe) %></td>
   <td><%= link_to 'Back', chef_home_path %></td>
 
 <% else %>
-  <%= link_to 'Back', home_path %>
+  <%= link_to 'Back', :back %>
 
 <% end %>

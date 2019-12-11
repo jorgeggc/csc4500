@@ -9,15 +9,24 @@
       <tr>
         <th>Name</th>
         <th>Desciption</th>
-        <th colspan="2"></th>
+        <th>Number of Favorites</th>
+        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @recipes.each do |recipe| %>
+        <% count = 0 %>
         <tr>
           <td><%= link_to recipe.name, recipe %></td>
           <td><%= recipe.description %></td>
+          <% recipe.favorites.each do |favorite| %>
+            <% if favorite.recipe_id == recipe.id %>
+              <% count = count + 1 %>
+            <% end %>
+          <% end %>
+          <td><%= count %></td>          
+          <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

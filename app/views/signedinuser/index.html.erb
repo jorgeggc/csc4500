@@ -2,10 +2,9 @@
   <%= link_to "Sign Up", signup_path %> or 
   <%= link_to "Log In", login_path %>
 <% end %>
-<div class="container">
-<h1> Welcome
-<%= current_user.try(:firstName) %>
-</h1>
+<p id="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>
+<h1> Welcome <%= current_user.try(:firstName) %></h1>
 <h1>Current Recipes!</h1>
 
 <table>
@@ -25,7 +24,20 @@
       <% else %>
         <td><%= recipe.name %></td>
       <% end %>
-        <td><%= recipe.description %></td>
+      <td><%= recipe.description %></td>
+      <% foundFavorite = false %>
+      <% if current_user %>
+        <% recipe.users.each do |user| %>
+          <% if user.id == current_user.try(:id) %>
+            <% foundFavorite = true %>
+          <% end %>
+        <% end %>
+        <% if foundFavorite == true %>
+          <td><%= link_to 'Unfavorite', favorites_path(:recipe_id => recipe.id),  :method => :post %></td>
+        <% else %>
+          <td><%= link_to 'Favorite', favorites_path(:recipe_id => recipe.id),  :method => :post %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -34,6 +46,7 @@
 <br>
 
 <% if current_user %>
+  <%= link_to 'View Favorites', user_favorites_path %>
   <%= link_to 'Log Out', logout_path  %>
 <% end %>
 

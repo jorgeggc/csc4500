@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Ingredients</th>
+      <th>Instructions</th>
+      <th>Chef</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.description %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%= recipe.chef.firstName %> <%= recipe.chef.lastName %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'home', admin_home_path %>
+
+<%= link_to 'Log Out', logout_path %>

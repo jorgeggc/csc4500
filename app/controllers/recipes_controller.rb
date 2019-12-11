@@ -10,8 +10,6 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-
-    @creator_of_recipe = Chef.where("id = ?", @recipe.chef_id)
   end
 
   # GET /recipes/new
@@ -61,7 +59,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to chef_home_path, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
