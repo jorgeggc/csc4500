@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'admin_home', to: 'admins#index', as: 'admin_home'
   get 'admin_users', to: 'admins#showUsers', as: 'admin_users'
   get 'admin_chefs', to: 'admins#showChefs', as: 'admin_chefs'
+  get 'admin_recipes', to: 'admins#showRecipes', as: 'admin_recipes'
+  get 'admin_restaurants', to: 'admins#showRestaurants', as: 'admin_restaurants'
   get 'user_favorites', to: 'signedinuser#showFavorites', as: 'user_favorites'
   get 'chef_home', to: 'signedinchef#index', as: 'chef_home'
 

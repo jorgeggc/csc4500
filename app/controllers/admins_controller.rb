@@ -12,6 +12,14 @@ class AdminsController < ApplicationController
     @chefs = Chef.all
   end
 
+  def showRecipes
+    @recipes = Recipe.all
+  end
+
+  def showRestaurants
+    @restaurants = Restaurant.all
+  end
+
   def index
     @admins = Admin.all
   end

@@ -25,9 +25,8 @@
       <% recipe1.each do |recipe| %>
         <tr>
           <td><%= link_to recipe.name, recipe %></td>
-          <td><%= recipe.name %></td>
           <td><%= recipe.description %></td>
-          <td><%= link_to 'Favorite', favorites_path(:recipe_id => recipe.id),  :method => :post %></td>
+          <td><%= link_to 'UnFavorite', favorites_path(:recipe_id => recipe.id),  :method => :post %></td>
         </tr>
       <% end %> 
     <% end %>

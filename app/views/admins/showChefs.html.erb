@@ -25,7 +25,7 @@
         <td><%= chef.gender %></td>
         <td><%= chef.DOB %></td>
         <td><%= chef.email %></td>
-        <td><%= chef.restaurant_id %></td>
+        <td><%= chef.restaurant.name %></td>
         <td><%= link_to 'Edit', edit_chef_path(chef) %></td>
         <td><%= link_to 'Destroy', chef, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
